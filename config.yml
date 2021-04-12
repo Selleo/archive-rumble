@@ -1,0 +1,7 @@
+baseURL: "https://rumble.selleo.app/"
+languageCode: "en-GB"
+title: "Selleo Rumble"
+theme: "book"
+
+params:
+  BookLogo: /rumble_logo.svg

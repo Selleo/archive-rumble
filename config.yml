@@ -2,6 +2,7 @@ baseURL: "https://rumble.selleo.app/"
 languageCode: "en-GB"
 title: "Selleo Rumble"
 theme: "book"
+uglyURLs: true
 
 disablePathToLower: true
 enableGitInfo: true

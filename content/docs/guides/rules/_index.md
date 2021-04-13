@@ -15,7 +15,7 @@ Don't be afraid to ask for help.
 
 ## Technology
 
-You are allowed to use any technology you want. You can experiment with any programming language / framework etc. you wish.
+You are allowed to use any technology you want. You can experiment with any programming language / framework etc. you wish. Multiple solutions can be provided by a single person/team.
 
 It is strongly recommended that you only use software that you have the legal right to use.
 In case you do not have the rights to use something, responsibility lies on **your** side.

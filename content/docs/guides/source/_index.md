@@ -33,7 +33,7 @@ src/
       gorilla/
     elixir/
       phoenix-cowboy/
-    js/
+    javascript/
       ...
 
 ```

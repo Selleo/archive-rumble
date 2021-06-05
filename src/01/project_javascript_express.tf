@@ -1,6 +1,6 @@
 module "lb_javascript_express" {
   source  = "Selleo/backend/aws//modules/load-balancer"
-  version = "0.2.3"
+  version = "0.2.4"
 
   name       = "javascript-express"
   vpc_id     = module.vpc.vpc_id
@@ -9,7 +9,7 @@ module "lb_javascript_express" {
 
 module "ecs_cluster_javascript_express" {
   source  = "Selleo/backend/aws//modules/ecs-cluster"
-  version = "0.2.3"
+  version = "0.2.4"
 
   name_prefix        = "rumble-01-javascript-express"
   region             = var.region
@@ -29,7 +29,7 @@ module "ecs_cluster_javascript_express" {
 
 module "ecs_service_javascript_express" {
   source  = "Selleo/backend/aws//modules/ecs-service"
-  version = "0.2.3"
+  version = "0.2.4"
 
   name           = "javascript-express"
   vpc_id         = module.vpc.vpc_id

@@ -1,6 +1,6 @@
 module "lb_typescript_deno" {
   source  = "Selleo/backend/aws//modules/load-balancer"
-  version = "0.2.3"
+  version = "0.2.4"
 
   name       = "typescript-deno"
   vpc_id     = module.vpc.vpc_id
@@ -9,7 +9,7 @@ module "lb_typescript_deno" {
 
 module "ecs_cluster_typescript_deno" {
   source  = "Selleo/backend/aws//modules/ecs-cluster"
-  version = "0.2.3"
+  version = "0.2.4"
 
   name_prefix        = "rumble-01-typescript-deno"
   region             = var.region
@@ -29,7 +29,7 @@ module "ecs_cluster_typescript_deno" {
 
 module "ecs_service_typescript_deno" {
   source  = "Selleo/backend/aws//modules/ecs-service"
-  version = "0.2.3"
+  version = "0.2.4"
 
   name           = "typescript-deno"
   vpc_id         = module.vpc.vpc_id

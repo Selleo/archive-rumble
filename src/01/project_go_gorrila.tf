@@ -1,6 +1,6 @@
 module "lb_go_gorilla" {
   source  = "Selleo/backend/aws//modules/load-balancer"
-  version = "0.2.3"
+  version = "0.2.4"
 
   name       = "go-gorilla"
   vpc_id     = module.vpc.vpc_id
@@ -9,7 +9,7 @@ module "lb_go_gorilla" {
 
 module "ecs_cluster_go_gorilla" {
   source  = "Selleo/backend/aws//modules/ecs-cluster"
-  version = "0.2.3"
+  version = "0.2.4"
 
   name_prefix        = "rumble-01-go-gorilla"
   region             = var.region
@@ -29,7 +29,7 @@ module "ecs_cluster_go_gorilla" {
 
 module "ecs_service_go_gorilla" {
   source  = "Selleo/backend/aws//modules/ecs-service"
-  version = "0.2.3"
+  version = "0.2.4"
 
   name           = "go-gorilla"
   vpc_id         = module.vpc.vpc_id

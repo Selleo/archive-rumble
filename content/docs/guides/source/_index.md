@@ -41,19 +41,12 @@ src/
 It's possible that duplicates might appear when few people choose the same technology stack but on different team.
 That's acceptable - all of you will need to assign suffix to your folders i.e. `-a`, `-b`.
 
-Solution folder should contain a **tiny** README how to run a project (docker based solutions can only provide docker image info explained below).
+Solution folder should contain a **tiny** README how to run a project (docker based solutions can only provide docker image tag to run).
 
 ## Docker based solutions
 
 If a Rumble requires to create a docker image make sure to use proper format and tagging.
-
-Docker Hub example:
-
-```
-Selleo/rumble-01-go-gin:latest
-```
-
-When you are done with your solution push docker image to the remote repository and update your `README` file with docker image / tag combination.
+Read more at [Using docker]({{< relref "/docs/guides/docker" >}}).
 
 ## Incremental work from Rumble to Rumble
 

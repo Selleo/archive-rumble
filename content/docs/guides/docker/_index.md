@@ -1,6 +1,6 @@
 ---
 weight: 3
-title: "Docker"
+title: "Using docker"
 ---
 
 # Publishing a docker image to GitHub registry

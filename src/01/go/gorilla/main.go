@@ -34,6 +34,7 @@ func main() {
 	})
 
 	r.HandleFunc("/", RootHandler)
+	r.HandleFunc("/hello", RootHandler)
 
 	srv := &http.Server{
 		Handler:      r,

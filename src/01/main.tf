@@ -28,3 +28,21 @@ resource "aws_key_pair" "ssh" {
   public_key = tls_private_key.ssh.public_key_openssh
 }
 
+resource "aws_security_group" "ecs" {
+  name        = "rumble-01"
+  description = "Default for rumble-01"
+  vpc_id      = module.vpc.vpc_id
+
+  tags = {
+    Terraform = "true"
+  }
+}
+
+resource "aws_security_group_rule" "allow_ssh_access" {
+  security_group_id = aws_security_group.ecs.id
+  type              = "ingress"
+  from_port         = 22
+  to_port           = 22
+  protocol          = "tcp"
+  cidr_blocks       = ["0.0.0.0/0"]
+}

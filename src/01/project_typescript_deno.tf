@@ -40,7 +40,7 @@ module "ecs_service_typescript_deno" {
   container_definition = {
     cpu_units      = 512
     mem_units      = 512
-    command        = ["/app/web"]
+    command        = ["run", "--allow-net", "server.ts"]
     image          = "docker.pkg.github.com/selleo/rumble/01-typescript-deno:latest"
     container_port = 3000
     envs           = {}

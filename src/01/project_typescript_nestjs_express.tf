@@ -40,7 +40,7 @@ module "ecs_service_typescript_nest_express" {
   container_definition = {
     cpu_units      = 512
     mem_units      = 512
-    command        = ["/app/web"]
+    command        = ["npm", "run", "start:prod"]
     image          = "docker.pkg.github.com/selleo/rumble/01-typescript-nest-express:latest"
     container_port = 3000
     envs           = {}

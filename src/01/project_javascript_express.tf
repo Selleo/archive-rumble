@@ -40,7 +40,7 @@ module "ecs_service_javascript_express" {
   container_definition = {
     cpu_units      = 512
     mem_units      = 512
-    command        = ["/app/web"]
+    command        = ["node", "index.js"]
     image          = "docker.pkg.github.com/selleo/rumble/01-javascript-express:latest"
     container_port = 3000
     envs           = {}

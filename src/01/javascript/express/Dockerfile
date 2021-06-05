@@ -6,4 +6,8 @@ WORKDIR /app
 
 ADD . .
 
+# Install modules
+RUN ["npm", "i"]
+
 CMD ["node", "index.js"]
+

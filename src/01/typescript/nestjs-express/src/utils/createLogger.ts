@@ -3,7 +3,7 @@ import winston from 'winston';
 
 export function createLogger() {
   return WinstonModule.createLogger({
-    level: 'debug',
+    level: 'info',
     format: winston.format.json(),
     transports: [new winston.transports.Console()],
   });

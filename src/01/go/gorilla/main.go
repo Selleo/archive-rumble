@@ -15,7 +15,9 @@ import (
 func main() {
 	addr := "0.0.0.0:3000"
 
-	logger, _ := zap.NewProduction()
+	loggerCfg := zap.NewProductionConfig()
+	loggerCfg.DisableCaller = true
+	logger, _ := loggerCfg.Build()
 	defer logger.Sync()
 	logger.Info("boot",
 		zap.String("version", "0.0.1"),
@@ -26,8 +28,11 @@ func main() {
 	// log middleware
 	r.Use(func(next http.Handler) http.Handler {
 		return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-			logger.Info("request",
-				zap.String("uri", r.RequestURI))
+			logger.Info("http",
+				zap.String("uri", r.RequestURI),
+				zap.String("method", r.Method),
+				zap.String("agent", r.UserAgent()),
+			)
 
 			next.ServeHTTP(w, r)
 		})
@@ -39,8 +44,8 @@ func main() {
 	srv := &http.Server{
 		Handler:      r,
 		Addr:         addr,
-		WriteTimeout: 15 * time.Second,
-		ReadTimeout:  15 * time.Second,
+		WriteTimeout: 30 * time.Second,
+		ReadTimeout:  30 * time.Second,
 	}
 
 	go func() {

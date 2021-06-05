@@ -9,6 +9,6 @@ async function bootstrap() {
   });
 
   const server: Server = await app.listen(3000);
-  server.setTimeout(15_000);
+  server.setTimeout(30_000);
 }
 bootstrap();

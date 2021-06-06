@@ -53,13 +53,22 @@ curl -I http://localhost:3000/hello
 | type            | json              | plain        | plain             | json            |
 | avg. entry size | 106 bytes         | 35 bytes     | 46 bytes          | 134 bytes       |
 
+
+https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cloudwatch-metrics.html
+running tasks = 3 (reservation 512)
+CPU available = 512
+MEM available = 2348
+
+2vCPU 4GB (2048, 4096)
+
 ### Benchmark 
+
 
 |                        | go/gorilla | js/express | ts/deno | ts/nest-express |
 |------------------------|------------|------------|---------|-----------------|
-| <b>idle</b>            |            |            |         |                 |
-| memory utilization     | 0.23%      | 0.87%      | 0.77%   | 4.02%           |
+| <b>idle before</b>     |            |            |         |                 |
 | cpu utilization        | 0.01%      | 0.02%      | 0.02%   | 0.04%           |
+| memory utilization     | 0.23%      | 0.87%      | 0.77%   | 4.02%           |
 | <b>rate 100</b>        |            |            |         |                 |
 | max cpu utilization    | 1.30%      | 5.08%      | 3.25%   | 6.40%           |
 | max memory utilization | 0.46%      | 3.50%      | 1.44%   | 4.84%           |
@@ -120,4 +129,20 @@ curl -I http://localhost:3000/hello
 | <b>rate 5000</b>       |            |            |         |                 |
 | max cpu utilization    | 38.28%     | 80.00%     | 79.19%  | 71.75%          |
 | max memory utilization | 0.55%      | 5.22%      | 8.44%   | 8.33%           |
+| <b>rate 5250</b>       |            |            |         |                 |
+| max cpu utilization    | 37.95%     | 79.60%     | 79.14%  | 71.99%          |
+| max memory utilization | 0.54%      | 5.25%      | 8.36%   | 8.20%           |
+| <b>rate 5500</b>       |            |            |         |                 |
+| max cpu utilization    | 39.31%     | 79.35%     | 79.17%  | 71.99%          |
+| max memory utilization | 0.54%      | 5.25%      | 8.38%   | 8.20%           |
+| <b>rate 5750</b>       |            |            |         |                 |
+| max cpu utilization    | 40.66%     | 79.79%     | 78.61%  | 71.66%          |
+| max memory utilization | 0.54%      | 5.22%      | 8.41%   | 8.34%           |
+| <b>rate 6000</b>       |            |            |         |                 |
+| max cpu utilization    | 40.82%     | 79.07%     | 79.33%  | 71.61%          |
+| max memory utilization | 0.54%      | 5.22%      | 8.42%   | 8.28%           |
+| <b>idle after</b>      |            |            |         |                 |
+| cpu utilization        | 0.01%      | 0.03%      | 0.01%   | 0.04%           |
+| memory utilization     | 0.32%      | 1.69%      | 8.42%   | 6.49%           |
+
 

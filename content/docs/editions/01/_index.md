@@ -39,10 +39,12 @@ To verify response headers use:
 curl -I http://localhost:3000/hello
 ```
 
-## Results (wip)
+## Results
 
 ### Information
 
+Each application was deployed to single `t3.medium (2vCPU, 4GB)` server on Amazon using ECS.
+Each deployment consisted of 3 ECS tasks with CPU/MEM reservation set to 512/512 (read more how units and reservation are calculated [here](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cloudwatch-metrics.html)).
 
 |                 | go/gorilla        | js/express   | ts/deno           | ts/nest-express |
 |-----------------|-------------------|--------------|-------------------|-----------------|
@@ -53,28 +55,20 @@ curl -I http://localhost:3000/hello
 | type            | json              | plain        | plain             | json            |
 | avg. entry size | 106 bytes         | 35 bytes     | 46 bytes          | 134 bytes       |
 
-
-https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cloudwatch-metrics.html
-running tasks = 3 (reservation 512)
-CPU available = 512
-MEM available = 2348
-
-2vCPU 4GB (2048, 4096)
-
 ### Benchmark 
 
-|                        | go/gorilla | js/express | ts/deno | ts/nest-express |
-|------------------------|------------|------------|---------|-----------------|
-| <b>idle before</b>     |            |            |         |                 |
-| cpu utilization        | 0.01%      | 0.02%      | 0.02%   | 0.04%           |
-| memory utilization     | 0.23%      | 0.87%      | 0.77%   | 4.02%           |
-| <b>idle after</b>      |            |            |         |                 |
-| cpu utilization        | 0.01%      | 0.03%      | 0.01%   | 0.04%           |
-| memory utilization     | 0.32%      | 1.69%      | 8.42%   | 6.49%           |
+Benchmark was performed using (vegeta)[https://github.com/tsenart/vegeta] tool.
+Configuration:
+- duration: 60s for each test
+- rate (queries per second): from 100 to 6000
 
+# Success ratio, latencies and utilization
 
 |                        | go/gorilla | js/express | ts/deno   | ts/nest-express |
 |------------------------|------------|------------|-----------|-----------------|
+| <b>idle</b>            |            |            |           |                 |
+| cpu utilization        | 0.01%      | 0.02%      | 0.02%     | 0.04%           |
+| memory utilization     | 0.23%      | 0.87%      | 0.77%     | 4.02%           |
 | <b>rate 100</b>        |            |            |           |                 |
 | success ratio          | 100.00%    | 100.00%    | 100.00%   | 100.00%         |
 | min                    | 24.988ms   | 24.997ms   | 24.992ms  | 25.127ms        |

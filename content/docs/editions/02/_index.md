@@ -9,17 +9,13 @@ Goal of this Rumble is to create a simple HTTP server that accepts JSON payload,
 
 ## Rules
 
-1. Create a simple `/v1/json` endpoint that accepts JSON payload `/json` via `POST` method.
+1. Create a simple `/v1/json` endpoint that accepts JSON payload via `POST` method.
 2. Parse the JSON into object/struct that is easy to use within the application.
 - provide the code that is typical to use in those scenarios for your technology - do not try to optimize it, be productive
 3. Serialize the same object back into response.
-
-Optional rules:
-
 4. Create a simple `/v2/json` endpoint that accepts the same payload.
 5. Parse the JSON into object/struct but this time you can optimize the whole process.
-3. Serialize the same object back into response.
-
+6. Serialize the same object back into response.
 
 {{< hint info >}}
 **Requirements**

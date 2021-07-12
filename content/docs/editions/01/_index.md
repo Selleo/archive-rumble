@@ -26,7 +26,7 @@ Make sure to read source distribution guideline and corresponding docker section
 
 ## Verification
 
-Run docker image with port exposed to `3000` and try `curl` command:
+Run docker container with port exposed to `3000` and try `curl` command:
 
 ```
 curl http://localhost:3000/hello

@@ -36,7 +36,7 @@ Benchmark will measure:
 
 ## Verification
 
-Run docker image with port exposed to `3000` and try `curl` command:
+Run docker container with port exposed to `3000` and try `curl` command:
 
 ```
 curl -X POST -H "Content-Type: application/json" -d @example.min.json http://localhost:3000/v1/json
